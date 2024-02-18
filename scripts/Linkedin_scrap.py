@@ -11,9 +11,9 @@ driver.get("https://linkedin.com/home")
 time.sleep(2)
 
 username = driver.find_element(By.ID, "session_key")
-username.send_keys("dhruvimodi57@gmail.com") 
+username.send_keys("email@example.com")     #Enter Your email
 pword = driver.find_element(By.ID, "session_password")
-pword.send_keys("Dhruvi@1")	  #Enter your Password
+pword.send_keys("password")	  #Enter your Password
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(75)
 
