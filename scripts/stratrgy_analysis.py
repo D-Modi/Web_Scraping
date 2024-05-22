@@ -133,35 +133,4 @@ class StatergyAnalysis:
     def HIT(self, prfit, total):
         return round((prfit/total*100, 1))
 
-def main():
-
-    file_path = "/home/dhruvi/Downloads/StrategyBacktestingPLBook-STAB736.csv"
-    obj = StatergyAnalysis(file_path)
-    csv = obj.get_csv(file_path)
-    print(csv.info())
-    daily_returns, monthly_returns, weekday_returns, weekly_returns, yearly_returns = obj.analysis(csv)
-
-    profitable_days = obj.num_profit(daily_returns)
-    loss_days = obj.num_loss(daily_returns)
-
-    profitable_months = obj.num_profit(monthly_returns)
-    loss_months = obj.num_loss(monthly_returns)
-
-    max_profitable_day = obj.max_profit(daily_returns)
-    min_profitable_day = obj.min_profit(daily_returns)
-
-    max_profitable_month = obj.max_profit(monthly_returns)
-    min_profitable_month = obj.min_profit(monthly_returns)
-
-    max_profitable_week = obj.max_profit(weekly_returns)
-    min_profitable_week = obj.min_profit(weekly_returns)
-
-    trading_days = obj.trading_num(daily_returns)
-    trading_months = obj.trading_num(monthly_returns)
-
-    profit, loss = obj.compare(daily_returns, 1000) 
-    HIT_ratio = obj.HIT(profitable_days, trading_days)
-    ROI, ROI_percent = obj.roi(monthly_returns)
-
-
 
