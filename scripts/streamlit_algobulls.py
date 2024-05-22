@@ -56,6 +56,13 @@ def daisply(daily_returns, Quant):
         st.line_chart(daily_returns, y=['cum_pnl'])
     st.divider()
 
+def display(weekday_returns):
+    st.subheader(f"Profit/Loss Data per Day of Week")
+    st.bar_chart(weekday_returns, y=['pnl_absolute'] )
+    st.write(f"Most Profitable Day of the week: {Alanyze.max_profit(weekday_returns)}")
+    st.write(f"Least Profitable Day of the week: {Alanyze.min_profit(weekday_returns)}")
+
+
 
 csv = f"/home/dhruvi/Downloads/StrategyBacktestingPLBook-{option}.csv"
 Alanyze = StatergyAnalysis(csv)
@@ -70,6 +77,12 @@ if Yearly:
     daisply(yearly_returns, "Year")
 if Weekly:
     daisply(weekly_returns, "Week")
+if Day:
+    display(weekday_returns)
+
+
+
+
 
 
 
