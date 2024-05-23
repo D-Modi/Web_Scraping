@@ -6,8 +6,8 @@ import matplotlib as plt
 import time
 import re
 import glob
-
-path = "/home/dhruvi/Downloads/StrategyBacktestingPLBook-*.csv"
+#change filepath here in "path"
+path = "../files/StrategyBacktestingPLBook-*.csv"
 print("\nUsing glob.iglob()")
 Files = []
 # Prints all types of txt files present in a Path
