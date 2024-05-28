@@ -169,6 +169,31 @@ if Weekly:
 if Day:
     display(weekday_returns)
 
+st.subheader("Monthly Returns and ROI% Over Time")
+
+# Plot the data
+fig, ax1 = plt.subplots()
+
+# Bar plot for monthly returns
+ax1.bar(monthly_returns.index.values, monthly_returns['cum_pnl'].values, color='b', alpha=0.6, label='Monthly Returns')
+ax1.set_xlabel('Month')
+ax1.set_ylabel('Monthly Returns', color='b')
+ax1.tick_params(axis='y', labelcolor='b')
+ax1.set_xticks(monthly_returns.index[::3])
+ax1.set_xticklabels(monthly_returns.index[::3], rotation=90)
+# Line plot for ROI%
+ax2 = ax1.twinx()
+ax2.plot(monthly_returns.index.values, monthly_returns['roi'].values, color='r', marker='o', label='ROI%')
+ax2.set_ylabel('ROI%', color='r')
+ax2.tick_params(axis='y', labelcolor='r')
+
+# Add a legend
+fig.legend(loc="upper left", bbox_to_anchor=(0.1,0.9))
+#fig.xticks(rotation=45)
+# Display the plot using Streamlit
+st.pyplot(fig)
+
+
 
 
 
